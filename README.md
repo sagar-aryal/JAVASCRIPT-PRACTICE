@@ -1,1 +1,1 @@
-# This is my repository for summer practice and learning.
+# This is a repository for summer practice and learning.
