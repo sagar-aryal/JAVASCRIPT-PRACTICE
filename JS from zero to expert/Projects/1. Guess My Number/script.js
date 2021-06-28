@@ -44,10 +44,11 @@ document.querySelector(".check").addEventListener("click", () => {
     }
   }
 
-  // when the guess value is greater than number
-  else if (guess > number) {
-    if (score > 0) {
-      document.querySelector(".message").textContent = "⬆️ Too high Number";
+  //   when the guess value is not equal with guess number
+  else if (guess !== number) {
+    if (score > 1) {
+      document.querySelector(".message").textContent =
+        guess > number ? "⬆️ Too high Number" : "⬇️ Too low Number!";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
@@ -56,17 +57,29 @@ document.querySelector(".check").addEventListener("click", () => {
     }
   }
 
-  // when the guess value is less than number
-  else if (guess < number) {
-    if (score > 0) {
-      document.querySelector(".message").textContent = "⬇️ Too low Number!";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "🤯 You lose the game.";
-      document.querySelector(".score").textContent = 0;
-    }
-  }
+  //   when the guess value is greater than number
+  //   else if (guess > number) {
+  //     if (score > 1) {
+  //       document.querySelector(".message").textContent = "⬆️ Too high Number";
+  //       score--;
+  //       document.querySelector(".score").textContent = score;
+  //     } else {
+  //       document.querySelector(".message").textContent = "🤯 You lose the game.";
+  //       document.querySelector(".score").textContent = 0;
+  //     }
+  //   }
+
+  //   when the guess value is less than number
+  //   else if (guess < number) {
+  //     if (score > 1) {
+  //       document.querySelector(".message").textContent = "⬇️ Too low Number!";
+  //       score--;
+  //       document.querySelector(".score").textContent = score;
+  //     } else {
+  //       document.querySelector(".message").textContent = "🤯 You lose the game.";
+  //       document.querySelector(".score").textContent = 0;
+  //     }
+  //   }
 });
 
 // Implementing again button and resetting values
