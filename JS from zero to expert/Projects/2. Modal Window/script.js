@@ -10,7 +10,16 @@ for (let i = 0; i < showModal.length; i++) {
     modal.classList.remove("hidden");
   });
 }
+
 // implementing close button functionality
 closeButton.addEventListener("click", () => {
   modal.classList.add("hidden");
+});
+
+// Closing modal window using esc key
+document.addEventListener("keydown", (e) => {
+  // console.log(e.key);
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    modal.classList.add("hidden");
+  }
 });
