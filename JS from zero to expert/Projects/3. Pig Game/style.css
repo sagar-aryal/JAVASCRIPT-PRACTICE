@@ -62,7 +62,7 @@ main {
 }
 
 .player-active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(166, 198, 224);
 }
 
 .player-active .name,
@@ -120,15 +120,17 @@ main {
 }
 
 .new-game {
-  top: 5rem;
+  top: 3rem;
 }
 
 .roll-dice {
-  top: 27rem;
+  top: 35rem;
+  background-color: rgb(183, 9, 206);
+  color: white;
 }
 
 .hold {
-  top: 50rem;
+  top: 45rem;
 }
 
 .btn:active {
