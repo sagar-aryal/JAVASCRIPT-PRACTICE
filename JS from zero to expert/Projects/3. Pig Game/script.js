@@ -1,11 +1,45 @@
 "use strict";
-
+// Selecting elements
+const player1 = document.querySelector(".player-1");
+const player2 = document.querySelector(".player-2");
+const newGame = document.querySelector(".new-game");
+const score1 = document.querySelector("#score-1");
+const score2 = document.querySelector("#score-2");
+const currentScore1 = document.querySelector("#current-score-1");
+const currentScore2 = document.querySelector("#current-score-2");
+const dice = document.querySelector(".dice");
 const rollDice = document.querySelector(".roll-dice");
-let currentRoll = 0;
+const holdBtn = document.querySelector(".hold");
+
+// Starting conditions
+score1.textContent = 0;
+score2.textContent = 0;
+dice.classList.add("hidden"); // Making dice image hidden before rolling a dice adding hidden class
+let currentScore = 0;
+let activePlayer = 1;
 
 // creating a function for rolling the dice
 rollDice.addEventListener("click", () => {
-  const dice = Math.trunc(Math.random() * 6 + 1);
-  console.log(dice);
-  document.querySelector(`current`);
+  // Generating a random dice roll
+  let diceNumber = Math.trunc(Math.random() * 6 + 1);
+  // console.log(diceNumber);
+
+  // Display dice
+  dice.classList.remove("hidden");
+  dice.src = `./dice/dice-${diceNumber}.png`;
+
+  // Check if diceNumber is 1 then shift to next player
+  if (diceNumber !== 1) {
+    // Add to the current score
+    currentScore += diceNumber;
+    document.getElementById(`current-score-${activePlayer}`).textContent =
+      currentScore;
+  } else {
+    // Switch to next player
+    document.getElementById(`current-score-${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 1 ? 2 : 1;
+    player1.classList.toggle("player-active");
+    player2.classList.toggle("player-active");
+  }
 });
