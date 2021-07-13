@@ -62,7 +62,7 @@ holdBtn.addEventListener("click", () => {
       totalScore[activePlayer];
 
     // Maximum score is 100, then game finish
-    if (totalScore[activePlayer] >= 50) {
+    if (totalScore[activePlayer] >= 100) {
       playing = false;
       dice.classList.add("hidden");
       document
