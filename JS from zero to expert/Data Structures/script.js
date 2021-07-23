@@ -133,6 +133,8 @@ console.log(newRestaurant.name);
 
 */
 
+/*
+
 // Rest Pattern and Parameters
 const [a, b, ...other] = [1, 2, 3, 4, 5];
 console.log(a, b, other);
@@ -158,3 +160,32 @@ add(1, 2, 4, 5, 7, 9, 3, 5, 6, 5);
 
 restaurant.orderPizza("mushroom", "onion", "olives", "spinach");
 restaurant.orderPizza("mushroom");
+
+*/
+
+// Short Circuting (&& and ||)
+console.log(3 && "Jonas");
+console.log("Joanas" && 3);
+console.log("Hello" && undefined && " " && 23 && null);
+// && returns the truthy value if all the values are true and always returns the last truthy value or the first falsy value.
+
+console.log(3 || "Jonas"); // short circuting means when it gets truthy value it display the value immediately and doesn't go further.
+console.log(false || true);
+console.log(0 || true);
+console.log(undefined || null);
+console.log(0 || "" || false || undefined || null || "Hello" || 234);
+//0, false, undefined('') are falsey values.
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushroom", "spinach", "onion");
+}
+restaurant.orderPizza && restaurant.orderPizza("mushroom", "spinach", "onion"); // We can do above if function using && operator.
+
+// Nullish Coalescing Operator(??)
+// Nillish works only with null and undefined but not with 0 or ' '
+// restaurant.numGuest = 0;
+const guests = restaurant.numGuest || 5;
+console.log(guests);
+
+const correctGuests = restaurant.numGuest ?? 10;
+console.log(correctGuests);
