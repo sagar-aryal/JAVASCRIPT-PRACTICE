@@ -1,5 +1,8 @@
 "use strict";
-// Destructuring arrays
+
+/*
+
+// Destructuring arrays and objects
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -60,3 +63,69 @@ restaurant.orderDelivery({
   address: "Rio de Helsinki",
   time: 11.25,
 });
+
+*/
+
+/*
+
+// The Spread Operator(...)
+const arr = [1, 2, 3];
+const newArr = [...arr, 4, 5]; // Spread operator takes all the elements from an entire array.
+console.log(newArr);
+console.log(...newArr); // Prints values individually
+
+const restaurant = {
+  name: "Classico Italiano",
+  location: "Via Angelo Tavanti 23, Firenze, Italy",
+  categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+  starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+  mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  pastaIngredients: function (ing1, ing2, ing3) {
+    console.log(`Lets have a pasta with ${ing1}, ${ing2} and ${ing3}.`);
+  },
+};
+
+
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+// Copying an entire array and merging together.
+const allMenuCopy = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(allMenuCopy);
+
+const str = "Jonas";
+const letters = [...str, "", "S"];
+console.log(letters);
+console.log(...str);
+
+// Real world examples
+const ingrdeients = [
+  prompt("Ingredient1"),
+  prompt("Ingredient2"),
+  prompt("Ingredient3"),
+];
+// Old way
+// restaurant.pastaIngredients(ingrdeients[0], ingrdeients[1], ingrdeients[2]);
+// Spread Operator method way
+restaurant.pastaIngredients(...ingrdeients);
+
+
+// Since 2018 spread operators too work with an objects
+const newRestaurant = { ...restaurant, founder: "Jesus", foundedIn: 1992 };
+console.log(newRestaurant);
+console.log(restaurant.name);
+console.log(newRestaurant.name);
+
+*/
