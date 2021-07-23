@@ -1,7 +1,7 @@
 "use strict";
 
 // Destructuring arrays and objects
-/*
+
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -23,7 +23,7 @@ const restaurant = {
     console.log(mainIngredient, otherIngredients);
   },
 };
-*/
+
 /*
 
 const arr = [2, 3, 4];
@@ -254,6 +254,8 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
+/*
+
 const players1 = [...game.players[0]];
 const players2 = [...game.players[1]];
 console.log(players1, players2);
@@ -287,3 +289,13 @@ team1 < team2 &&
     "Team1 is more likely to win because it has the lowest bet amount."
   );
 // console.log(Math.min(team1, draw, team2));
+
+*/
+
+// The for-of Loop
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) console.log(item);
+
+for (const [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
