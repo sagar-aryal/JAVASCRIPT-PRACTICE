@@ -1,7 +1,5 @@
 "use strict";
 
-/*
-
 // Destructuring arrays and objects
 const restaurant = {
   name: "Classico Italiano",
@@ -19,7 +17,12 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
+/*
 
 const arr = [2, 3, 4];
 const a = arr[0];
@@ -129,3 +132,29 @@ console.log(restaurant.name);
 console.log(newRestaurant.name);
 
 */
+
+// Rest Pattern and Parameters
+const [a, b, ...other] = [1, 2, 3, 4, 5];
+console.log(a, b, other);
+
+// Objects
+const [pizza, risotte, ...others] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotte, others);
+
+// Functions
+const add = function (...numbers) {
+  //console.log(numbers);
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(1, 2, 3, 4, 5);
+add(1, 2, 4, 5, 7, 9, 3, 5, 6, 5);
+
+restaurant.orderPizza("mushroom", "onion", "olives", "spinach");
+restaurant.orderPizza("mushroom");
