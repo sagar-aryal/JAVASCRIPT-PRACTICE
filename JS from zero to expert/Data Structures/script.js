@@ -2,6 +2,25 @@
 
 // Destructuring arrays and objects
 
+const hours = {
+  sun: {
+    open: 12,
+    close: 22,
+  },
+  thu: {
+    open: 10,
+    close: 22,
+  },
+  fri: {
+    open: 10,
+    close: 22,
+  },
+  sat: {
+    open: 12,
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -9,17 +28,20 @@ const restaurant = {
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
 
-  order: function (starterIndex, mainIndex) {
+  //ES6 enhanced object literals
+  hours,
+
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+  orderDelivery({ starterIndex, mainIndex, time, address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
 
-  orderPizza: function (mainIngredient, ...otherIngredients) {
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient, otherIngredients);
   },
 };
@@ -292,6 +314,8 @@ team1 < team2 &&
 
 */
 
+/*
+
 // The for-of Loop
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) console.log(item);
@@ -299,3 +323,5 @@ for (const item of menu) console.log(item);
 for (const item of menu.entries()) console.log(item);
 
 for (const [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
+
+*/
