@@ -325,3 +325,27 @@ for (const item of menu.entries()) console.log(item);
 for (const [i, el] of menu.entries()) console.log(`${i + 1}: ${el}`);
 
 */
+// Optional Chaining
+// console.log(restaurant.hours.sun.open);
+// console.log(restaurant.hours.mon.open);  // this shows error because it doesn't exist.
+
+// with optional chaining
+// console.log(restaurant.hours.sun?.open);
+// console.log(restaurant.hoursOpened?.mon?.open); // adding ?. will remove error and undefine if it doesn't exist.
+
+const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+
+for (const day of days) {
+  console.log(day);
+  const open = restaurant.hours[day]?.open ?? "closed";
+  console.log(open);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? "Method doesn't exist");
+console.log(restaurant.orderRistto?.(0, 1) ?? "Method doesn't exist");
+
+// Arrays
+const users = [{ name: "Jonas", email: "hello@jonas.io" }];
+console.log(users[0]?.name ?? "User array empty");
+if (users.length > 0) console.log(users[0]?.name ?? "User array empty");
