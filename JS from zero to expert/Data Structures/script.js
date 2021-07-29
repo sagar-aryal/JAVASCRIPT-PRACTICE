@@ -531,6 +531,7 @@ Let's continue with our football betting app! This time, we have a map with a lo
       [FIRST HALF] 17: ⚽️ GOAL
 GOOD LUCK 😀
 */
+/*
 const gameEvents = new Map([
   [17, "⚽️ GOAL"],
   [36, "🔁 Substitution"],
@@ -568,3 +569,77 @@ for (const [key, value] of gameEvents) {
       : console.log(`[SECOND HALF] ${key}: ${value}`)
   );
 }
+*/
+
+// Working with Strings
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(airline[0]);
+console.log(airline.length);
+
+console.log("A320"[0]);
+console.log("A320".length);
+
+console.log(airline.indexOf("o"));
+console.log(airline.indexOf("A"));
+console.log(airline.lastIndexOf("A"));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+console.log(airline.slice(-2));
+console.log(airline.slice(2, -2));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats.
+  const s = seat.slice(-1);
+  s === "B" || s === "E"
+    ? console.log(`You got the middle seat 🙂`)
+    : console.log(`Sorry! it's not available 😞`);
+};
+checkMiddleSeat("11B");
+checkMiddleSeat("1A");
+checkMiddleSeat("23C");
+checkMiddleSeat("29E");
+
+console.log(new String("Jonas"));
+
+// Fixing Capitalization in name and making in correct format
+const passenger = "JoAnas";
+const passengerLower = passenger.toLocaleLowerCase();
+console.log(passengerLower);
+const passengerCorrect = passenger[0]
+  .toUpperCase()
+  .concat(passengerLower.slice(1));
+console.log(passengerCorrect);
+
+// Fixing emails with white space
+const email = "hello@joanas.io";
+const loginEmail = " Hello@joanas.Io \n";
+const lowerEmail = loginEmail.toLocaleLowerCase();
+console.log(lowerEmail);
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+// Replacing strings
+const priceGB = "288,97€";
+const priceUS = priceGB.replace("€", "$").replace(",", ".");
+console.log(priceUS);
+const newPriceUs = priceUS.replace(priceUS, "234.56$");
+console.log(newPriceUs);
+
+const announcement = `All passangers come to boarding door 23. Boarding door 23!`;
+console.log(announcement.replace("door", "gate"));
+// console.log(announcement.replaceAll("door", "gate")); // Sometimes this might not work so we can do as belows if error occurs.
+console.log(announcement.replace(/door/g, "GATE"));
+
+// Booleans
+const planeNew = "Airbus A328654neo";
+console.log(planeNew.includes("A328"));
+console.log(planeNew.includes("A338"));
+console.log(planeNew.startsWith("A328"));
+console.log(planeNew.startsWith("Air"));
+console.log(planeNew.startsWith("Aib"));
