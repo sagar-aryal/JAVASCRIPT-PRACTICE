@@ -572,6 +572,7 @@ for (const [key, value] of gameEvents) {
 */
 
 // Working with Strings
+/*
 const airline = "TAP Air Portugal";
 const plane = "A320";
 
@@ -643,3 +644,64 @@ console.log(planeNew.includes("A338"));
 console.log(planeNew.startsWith("A328"));
 console.log(planeNew.startsWith("Air"));
 console.log(planeNew.startsWith("Aib"));
+*/
+
+// Practice exercise
+/*
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are not alloiwed on board.");
+  } else {
+    console.log("Welcome abord!");
+  }
+};
+
+checkBaggage("I have a laptop, some food and a pocket Knife.");
+checkBaggage("Socks and camera.");
+checkBaggage("Got some snacks and a Gun for protection.");
+*/
+
+// split and join
+console.log("a+very+nice+string".split("+"));
+console.log("Sagar Aryal".split(" "));
+
+const [firstName, lastName] = "Sagar Aryal".split(" ");
+const newName = ["Mr.", firstName, lastName.toUpperCase()];
+console.log(newName);
+
+console.log(newName.join(" "));
+
+const capitalizeName = function (name) {
+  const names = name.split(" ");
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(" "));
+};
+
+capitalizeName("jessica anna smith davis");
+capitalizeName("sagar aryal");
+
+// padding
+const message = "Go to gate 23!";
+console.log(message.padStart(25, "+"));
+console.log("Jonas".padStart(25, "+"));
+console.log("Jonas".padEnd(25, "+"));
+
+// credit card number used padding to hide middle elements
+const maskCreditCard = function (number) {
+  const str = number + "";
+  const last = str.slice(-4);
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(44272067543789));
+console.log(maskCreditCard("987653442252536"));
+
+// repeat
+const message2 = "Bad weather... All departures delayed!";
+console.log(message2.repeat(5));
