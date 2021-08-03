@@ -109,9 +109,9 @@ const lufthansa = {
   },
 };
 
-lufthansa.book(234, "Sagar Aryal");
-lufthansa.book(427, "Joanas Schmedamnn");
-console.log(lufthansa.bookings);
+// lufthansa.book(234, "Sagar Aryal");
+// lufthansa.book(427, "Joanas Schmedamnn");
+// console.log(lufthansa.bookings);
 
 const eurowings = {
   airline: "eurowings",
@@ -124,11 +124,11 @@ const book = lufthansa.book;
 // book(239, "Sarah Williams");
 // Doesn't work with this keyword while coping a function from above object
 
-book.call(eurowings, 239, "Sarah Williams");
-console.log(eurowings);
+// book.call(eurowings, 239, "Sarah Williams");
+// console.log(eurowings);
 
-book.call(lufthansa, 234, "Sagar Aryal");
-console.log(lufthansa);
+// book.call(lufthansa, 234, "Sagar Aryal");
+// console.log(lufthansa);
 
 const swiss = {
   airline: "swiss air lines",
@@ -136,5 +136,52 @@ const swiss = {
   bookings: [],
 };
 
-book.call(swiss, 234, "John Mark");
+// book.call(swiss, 234, "John Mark");
+// console.log(swiss);
+
+// Apply method
+const flightData = [583, "George Cooper"];
+book.apply(swiss, flightData);
 console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+// Bind method
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookSW = book.bind(swiss);
+
+bookEW(238, "Steven Williams");
+bookSW(123, "Sagar Aryal");
+
+const bookEW233 = book.bind(eurowings, 233, "JOANAS SCHEMNNAND"); // setting arguments already in method.
+bookEW233();
+
+const bookEW234 = book.bind(eurowings, 234); // setting few arguments already in method.
+bookEW234("JOANAS SCHEMNNAND".toLocaleLowerCase());
+
+// With Event Listener
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector(".buy")
+  .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+//if we don't bind function with main lufthansa object it doesn't work.
+// bind method pass function and call method calls function
+
+// Partial application
+
+const addTax = (rate, value) => {
+  return value + value * rate;
+};
+
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
