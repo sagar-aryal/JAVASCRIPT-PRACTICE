@@ -74,6 +74,7 @@ document.body.addEventListener("click", high5);
 ["Jonas", "Martha", "Adam"].forEach(high5);
 */
 
+/*
 // Functions returning functions
 const greet = function (greeting) {
   return function (name) {
@@ -93,3 +94,47 @@ const greetArrow = (greeting) => (name) => {
   console.log(`${greeting} ${name}`);
 };
 greetArrow("Hello")("Arrow");
+*/
+
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+  book(flightNum, name) {
+    // this is similar to writing function book: function() {.......}
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(234, "Sagar Aryal");
+lufthansa.book(427, "Joanas Schmedamnn");
+console.log(lufthansa.bookings);
+
+const eurowings = {
+  airline: "eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+// book(239, "Sarah Williams");
+// Doesn't work with this keyword while coping a function from above object
+
+book.call(eurowings, 239, "Sarah Williams");
+console.log(eurowings);
+
+book.call(lufthansa, 234, "Sagar Aryal");
+console.log(lufthansa);
+
+const swiss = {
+  airline: "swiss air lines",
+  iataCode: "SW",
+  bookings: [],
+};
+
+book.call(swiss, 234, "John Mark");
+console.log(swiss);
