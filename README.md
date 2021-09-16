@@ -1,1 +1,5 @@
-# This is a repository for summer practice and learning.
+# JAVASCRIPT PRACTICE
+
+## Description
+
+This is a repository for practice and learning JavaScript in depth.
